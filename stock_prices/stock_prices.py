@@ -4,17 +4,22 @@ import argparse
 
 def find_max_profit(prices):
 
-  low = prices[0]
   high = prices[0]
+  low = prices[0]
 
-  price: int
   for price in prices:
     if price > high:
       high = price
     elif price < low:
       low = price
 
-  return high - low
+  if prices.index(low) < prices.index(high):
+    return high - low
+  else:
+    index = prices.index(high) + 1
+    find_max_profit(prices[0:index])
+
+
 
 
 #if __name__ == '__main__':
