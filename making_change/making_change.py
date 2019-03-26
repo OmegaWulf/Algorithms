@@ -1,9 +1,17 @@
 #!/usr/bin/python
 
+#1, 5, 10, 25, 50
+
 import sys
 
 def making_change(amount, denominations):
-  pass 
+  if (amount == 0) or (amount == 1):
+    return 1
+  elif amount == 2:
+    return 2
+  else:
+    return making_change(amount - 1) + making_change(amount - 5) + making_change(amount - 10) + making_change(amount - 25) + making_change(amount-50)
+
 
 
 if __name__ == "__main__":
